@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 public class tictactoe {
-     static char[][] board = new char[3][3];
+    static char[][] board = new char[3][3];
     static boolean isHumanTurn;
     static char humanSymbol;
     static char computerSymbol;
@@ -13,7 +13,11 @@ public class tictactoe {
         displayTossResult();
 
         int slot = getUserSlot();
-        System.out.println("Slot entered: " + slot);
+        int row = getRowFromSlot(slot);
+        int col = getColFromSlot(slot);
+
+        System.out.println("Row: " + row);
+        System.out.println("Column: " + col);
     }
 
     static void initializeBoard() {
@@ -62,7 +66,14 @@ public class tictactoe {
 
     static int getUserSlot() {
         Scanner sc = new Scanner(System.in);
-        int slot = sc.nextInt();
-        return slot;
+        return sc.nextInt();
+    }
+
+    static int getRowFromSlot(int slot) {
+        return (slot - 1) / 3;
+    }
+
+    static int getColFromSlot(int slot) {
+        return (slot - 1) % 3;
     }
 }
