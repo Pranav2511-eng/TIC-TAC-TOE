@@ -18,6 +18,8 @@ public class tictactoe {
 
         System.out.println("Row: " + row);
         System.out.println("Column: " + col);
+
+        System.out.println(isValidMove(row, col));
     }
 
     static void initializeBoard() {
@@ -75,5 +77,12 @@ public class tictactoe {
 
     static int getColFromSlot(int slot) {
         return (slot - 1) % 3;
+    }
+
+    static boolean isValidMove(int row, int col) {
+        if (row < 0 || row >= 3 || col < 0 || col >= 3) {
+            return false;
+        }
+        return board[row][col] == '-';
     }
 }
